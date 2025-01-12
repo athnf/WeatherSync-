@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherSync</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-slate-100 to-slate-200 flex items-center justify-center min-h-screen font-['Inter']">
+    <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full border border-slate-200">
+        <div class="flex items-center justify-center mb-8">
+            <svg class="w-12 h-12 text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <h1 class="ml-4 text-3xl font-semibold text-slate-800">WeatherSync</h1>
+        </div>
+        
+        <div class="bg-slate-50 p-6 rounded-2xl text-center">
+            <div id="locationLoader" class="mb-6">
+                <div class="space-y-4">
+                    <div class="h-2 bg-slate-200 rounded animate-pulse"></div>
+                    <div class="h-2 bg-slate-200 rounded animate-pulse delay-100"></div>
+                    <div class="h-2 bg-slate-200 rounded animate-pulse delay-200"></div>
+                </div>
+                <p class="mt-4 text-slate-600 font-medium">Synchronizing Location Data</p>
+            </div>
+            
+            <div id="weatherButton" class="hidden">
+                <button onclick="showTrollWeather()" class="w-full bg-slate-800 text-white py-3 rounded-lg hover:bg-slate-900 transition duration-300 ease-in-out">
+                    Retrieve Weather Report
+                </button>
+            </div>
+        </div>
+        
+        <div class="mt-6 text-center text-sm text-slate-500">
+            <p>&copy; 2024 WeatherSync</p>
+            <p class="mt-1 text-xs">
+                Developed by 
+                <a href="https://github.com/athnf" target="_blank" class="text-slate-700 hover:underline font-medium">
+                    JustPrz 
+                </a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            document.getElementById('locationLoader').classList.add('hidden');
+            document.getElementById('weatherButton').classList.remove('hidden');
+        }, 2500);
+
+        function showTrollWeather() {
+            Swal.fire({
+                title: 'Weather Synchronization Complete',
+                html: `
+                    <div class="text-center">
+                        <p class="text-lg font-bold mb-4 text-slate-800">Localized Weather Insight</p>
+                        <p class="text-xl text-slate-700">u can check outside bro wth</p>
+                    </div>
+                `,
+                icon: 'info',
+                confirmButtonText: 'Understood',
+                confirmButtonColor: '#1E293B',
+                background: '#F8FAFC',
+                customClass: {
+                    popup: 'rounded-2xl shadow-2xl',
+                    title: 'text-2xl font-bold text-slate-900',
+                }
+            });
+        }
+    </script>
+</body>
+</html>
